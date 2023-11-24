@@ -4,15 +4,15 @@ import buttonArrow from "./img/buttonArrow.svg";
 
 function App() {
   const [inputData, setInputData] = useState({
-    day: 0,
-    month: 0,
-    year: 0,
+    day: '',
+    month: '',
+    year: '',
   });
 
   const [outputData, setOutputData] = useState({
-    years: 0,
-    months: 0,
-    days: 0,
+    years: '--',
+    months: '--',
+    days: '--',
   });
 
   const calculateAge = () => {
@@ -49,9 +49,10 @@ function App() {
   };
 
   const handleInputChange = (e) => {
-    const value = parseInt(e.target.value, 10);
+    const value = e.target.value;
     const id = e.target.id;
-
+  
+    // Обмеження для введених значень
     switch (id) {
       case "day":
         setInputData({
@@ -92,6 +93,8 @@ function App() {
               max="31"
               value={inputData.day}
               onChange={handleInputChange}
+              onFocus={(e) => e.target.select()}
+              placeholder="DD"
             />
           </div>
           <div className="itemInput">
@@ -106,6 +109,8 @@ function App() {
               max="12"
               value={inputData.month}
               onChange={handleInputChange}
+              onFocus={(e) => e.target.select()}
+              placeholder="MM"
             />
           </div>
           <div className="itemInput">
@@ -120,12 +125,14 @@ function App() {
               max="9999"
               value={inputData.year}
               onChange={handleInputChange}
+              onFocus={(e) => e.target.select()}
+              placeholder="YYYY"
             />
           </div>
         </div>
         <div className="buttonArea">
           <div className="line"></div>
-          <button onClick={calculateAge}>
+          <button className="buttonCalculate" onClick={calculateAge}>
             <img src={buttonArrow} alt="" />
           </button>
         </div>

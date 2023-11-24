@@ -5,11 +5,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 16px;
 }
 .calculatorContent {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
     max-width: 840px;
     width: 100%;
-    height: 650px;
     background-color: #fff;
     border-radius: 24px 24px 200px 24px;
     padding: 56px;
@@ -22,6 +25,7 @@
     display: flex;
     flex-direction: column;
     gap: 8px;
+    width: calc((100% / 3));
 }
 .titleItemInput {
     color: #716f6f;
@@ -46,6 +50,130 @@
     letter-spacing: 0.32px;
     border-radius: 8px;
     border: 1px solid #dcdcdc;
-    width: 160px;
-    
+    width: 100%;
+    transition: 250ms;
+}
+.inputItemInput:hover,
+.inputItemInput:focus {
+    border: 1px solid var(--Purple, #854dff);
+}
+.buttonArea {
+    position: relative;
+    width: 100%;
+    height: 96px;
+    display: flex;
+    align-items: center;
+}
+.line {
+    width: 100%;
+    height: 1px;
+    background-color: #dcdcdc;
+}
+.buttonCalculate {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    outline: none;
+    background: none;
+    border: none;
+    background: #854dff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 250ms;
+}
+.buttonCalculate:hover {
+    background-color: #151515;
+}
+.outputArea {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    align-items: flex-start;
+}
+.itemOutput {
+    display: flex;
+    gap: 8px;
+}
+.numberOutput {
+    color: #854dff;
+    font-family: Poppins;
+    font-size: 104px;
+    font-style: italic;
+    font-weight: 800;
+    line-height: 110%;
+    letter-spacing: -2.08px;
+}
+.titleOutput {
+    color: #151515;
+    font-family: Poppins;
+    font-size: 104px;
+    font-style: italic;
+    font-weight: 800;
+    line-height: 110%;
+    letter-spacing: -2.08px;
+}
+
+@media screen and (max-width: 600px) {
+    .inputArea {
+        gap: 8px;
+    }
+    .inputItemInput {
+        width: 100%;
+    }
+    .titleItemInput {
+        color: var(--Grey, #716f6f);
+        font-family: Poppins;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+    }
+    .inputItemInput {
+        color: var(--Black, #151515);
+        font-family: Poppins;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        letter-spacing: 0.2px;
+        padding: 12px;
+    }
+    .buttonArea {
+        height: 64px;
+    }
+    .buttonCalculate {
+        transform: translateX(-50%);
+        left: 50%;
+        width: 64px;
+        height: 64px;
+    }
+    .buttonCalculate img {
+        width: 24px;
+        height: 24px;
+    }
+    .numberOutput {
+        color: var(--Purple, #854dff);
+        font-family: Poppins;
+        font-size: 56px;
+        font-style: italic;
+        font-weight: 800;
+        line-height: 110%; /* 61.6px */
+        letter-spacing: -1.12px;
+    }
+    .titleOutput {
+        color: var(--Black, #151515);
+        font-family: Poppins;
+        font-size: 56px;
+        font-style: italic;
+        font-weight: 800;
+        line-height: 110%; /* 61.6px */
+        letter-spacing: -1.12px;
+    }
 }
